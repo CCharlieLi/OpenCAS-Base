@@ -1,0 +1,59 @@
+<template name="publish">
+	                                            <article class="type-page hentry clearfix">
+                                                        <h1 class="post-title">
+                                                                <a href="#">Job Info</a>
+                                                        </h1>
+                                                        <hr>
+                                                        <p>描述职位信息</p>
+
+                                                        {{#if ERROR_FLAG}}<p class="error">{{ERROR_MSG}}</p>{{/if}}
+                                                </article>
+
+
+                                                <form id="contact-form" class="row" >
+
+                                                        <div class="span2">
+                                                                <label for="company">Company <span>*</span> </label>
+                                                        </div>
+                                                        <div class="span6">
+                                                                <input type="text" name="company" id="company" class="required input-xlarge" value="" title="* Please provide your company name">
+                                                        </div>
+
+                                                        <div class="span2">
+                                                                <label for="email">Contact Email <span>*</span></label>
+                                                        </div>
+                                                        <div class="span6">
+                                                                <input type="text" name="email" id="email" class="email required input-xlarge" value="" title="* Please provide a valid email address">
+                                                        </div>
+
+                                                        <div class="span2">
+                                                                <label for="jobname">Job Name <span>*</span></label>
+                                                        </div>
+                                                        <div class="span6">
+                                                                <input type="text" name="jobname" id="jobname" class="input-xlarge" value="">
+                                                        </div>
+
+                                                        <div class="span2">
+                                                                <label for="message">Job Description <span>*</span> </label>
+                                                        </div>
+                                                        <div class="span6">
+                                                                <textarea name="description" id="description" class="required span6" rows="6" title="* Please enter job description"></textarea>
+                                                        </div>
+
+                                                        <div class="span2">
+                                                                <label for="tags">Tags (C++,Ruby,Python...)</label>
+                                                        </div>
+                                                        <div class="span6">
+                                                                <input type="text" name="tags" id="tags" class="input-xlarge" value="">
+                                                        </div>
+
+                                                        <div class="span6 offset2 bm30">
+                                                                <input type="submit" name="submit" value="Send" class="btn btn-inverse">
+                                                                <img src="images/loading.gif" id="contact-loader" alt="Loading...">
+                                                        </div>
+
+                                                        <div class="span6 offset2 error-container"></div>
+                                                        <div class="span8 offset2" id="message-sent"></div>
+
+                                                </form>
+</template>

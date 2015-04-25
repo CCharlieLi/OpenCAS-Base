@@ -1,0 +1,187 @@
+<template name="Appbody">
+        <body>
+                <!-- Start of Header -->
+                <div class="header-wrapper">
+                        <header>
+                                <div class="container">
+                                        <div class="logo-container">
+                                                <!-- Website Logo -->
+                                                <a href="/"  title="OpenCAS Base">
+                                                        <img width="173" height="30" src="images/logo.png" alt="OpenCAS Base">
+                                                </a>
+                                                <span class="tag-line">Database of jobs for OpenCAS</span>
+                                                
+                                        </div>
+
+
+                                        <!-- Start of Main Navigation -->
+                                        <nav class="main-nav">
+                                                <div class="menu-top-menu-container">
+                                                        <ul id="menu-top-menu" class="clearfix">
+                                                                {{#if currentUser}}
+                                                                <li class="current-menu-item"><a href="/publish">Publish a Job</a></li>
+                                                                {{/if}}
+                                                                <li><a href="/">Home</a></li>
+                                                                <li><a href="/joblist">Job List</a></li>
+                                                                <li><a href="/faqs">FAQs</a></li>
+                                                                
+                                                                {{> atNavButton }}
+                                                                
+                                                        </ul>
+                                                </div>
+                                        </nav>
+                                        <!-- End of Main Navigation -->
+
+                                </div>
+                        </header>
+                </div>
+                <!-- End of Header -->
+
+
+                <!-- Start of Search Wrapper -->
+                <div class="search-area-wrapper">
+                        <div class="search-area container">
+                                <h3 class="search-header">Want to get a job?</h3>
+                                <p class="search-tag-line">Become one of OpenCAS and find the best chance for you.</p>
+
+                                <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
+                                        <input class="search-term required" type="text" id="s" name="s" placeholder="Type your search terms here" title="* Please enter a search term!" />
+                                        <input class="search-btn" type="submit" value="Search" />
+                                        <div id="search-error-container"></div>
+                                </form>
+                        </div>
+                </div>
+                <!-- End of Search Wrapper -->
+
+
+                <!-- Start of Page Container -->
+                <div class="page-container">
+                        <div class="container">
+                                <div class="row">
+
+                                        <!-- start of page content -->
+                                        <div class="span8 page-content">
+
+                                                <!-- Basic Home Page Template -->
+                                                {{> yield }}
+                                        </div>
+                                        <!-- end of page content -->
+
+
+                                        <!-- start of sidebar -->
+                                        <aside class="span4 page-sidebar">
+
+                                                <section class="widget">
+                                                        <div class="support-widget">
+                                                                <h3 class="title">{{#if currentUser}}{{currentUser.username}}{{else}}Join the OpenCAS!{{/if}}</h3>
+                                                                <p class="intro">
+                                                                {{#if currentUser}}
+                                                                   {{currentUser.profile.institution}}<br/>
+                                                                   {{currentUser.profile.research}}
+                                                                {{else}}
+                                                                Join us and find the best job for youself.
+                                                                {{/if}}
+                                                                </p>
+                                                           
+                                                        </div>
+                                                </section>
+
+                                                {{> yield "links"}}
+
+                                                {{> yield "tags"}}
+
+                                        </aside>
+                                        <!-- end of sidebar -->
+                                </div>
+                        </div>
+                </div>
+                <!-- End of Page Container -->
+
+
+                <!-- Start of Footer -->
+                <footer id="footer-wrapper">
+                        <div id="footer" class="container">
+                                <div class="row">
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">About this website</h3>
+                                                        <div class="textwidget">
+                                                                <p>中国科学院开源软件协会是由中国科学院大学(UCAS)研究生组成的开源技术社区。 </p>
+                                                                <p>OpenCAS收集各企业，团队和社区的实习、招聘信息，并发布在OpenCAS Base，为中国科学院的同学们提供更加便捷的途径，寻找适合自己的工作和实习机会。</p>
+                                                        </div>
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">Wechat</h3>
+                                                        <div>
+                                                            <img width="150" height="150" src="images/wechat.jpg">
+                                                        </div>
+                                                        
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget"><h3 class="title">Links</h3>
+                                                        <ul>
+                                                                <li><a href="http://www.opencas.org" title="OpenCAS Mirrors">OpenCAS Mirrors</a> </li>
+                                                                <li><a href="http://forum.opencas.org" title="OpenCAS Forum">OpenCAS Forum</a></li>
+                                                                <li><a href="http://wiki.opencas.org" title="OpenCAS Wiki">OpenCAS Wiki</a></li>
+                                                               
+                                                        </ul>
+                                                </section>
+                                        </div>
+
+                                        <div class="span3">
+                                                <section class="widget">
+                                                        <h3 class="title">Contact</h3>
+                                                        <div id="basicuse">
+                                                         <p>Address: <a>No.4，Zhongguancun South Fourth Street, Beijing, China 北京市 海淀区 中关村南四街4号</a></p>
+                                                         <p>Email: <a>charlie@opencas.org</a></p>
+                                                        </div>
+                                                </section>
+                                        </div>
+
+                                </div>
+                        </div>
+                        <!-- end of #footer -->
+
+                        <!-- Footer Bottom -->
+                        <div id="footer-bottom-wrapper">
+                                <div id="footer-bottom" class="container">
+                                        <div class="row">
+                                                <div class="span6">
+                                                        <p class="copyright">
+                                                                Copyright © 2015. All Rights Reserved by OpenCAS. Powered by <a href="http://www.meteor.com">Meteor</a>.
+                                                        </p>
+                                                </div>
+                                                <div class="span6">
+                                                        <!-- Social Navigation -->
+                                                        <ul class="social-nav clearfix">
+                                                                <li class="linkedin"><a target="_blank" href="#"></a></li>
+                                                                <li class="stumble"><a target="_blank" href="#"></a></li>
+                                                                <li class="google"><a target="_blank" href="#"></a></li>
+                                                                <li class="deviantart"><a target="_blank" href="#"></a></li>
+                                                                <li class="flickr"><a target="_blank" href="#"></a></li>
+                                                                <li class="skype"><a target="_blank" href="skype:#?call"></a></li>
+                                                                <li class="rss"><a target="_blank" href="#"></a></li>
+                                                                <li class="twitter"><a target="_blank" href="#"></a></li>
+                                                                <li class="facebook"><a target="_blank" href="#"></a></li>
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <!-- End of Footer Bottom -->
+                </footer>
+                <!-- End of Footer -->
+
+
+                <a href="#top" id="scroll-top"></a>
+  
+
+        </body>
+
+</template>

@@ -1,0 +1,31 @@
+<template name="content">
+                                                <div class="row separator">
+                                                        <section class="span4 articles-list">
+                                                                <h3>Popular Posts</h3>
+                                                                <ul class="articles">
+                                                                {{#each pops}}
+                                                                        <li class="article-entry standard">
+                                                                                <h4><a href="/joblist/{{_id}}">{{job}}</a></h4>
+                                                                                <span class="article-meta">Published on {{createdAt}} By<a href="#" title="{{company}}"> {{company}}</a></span>
+                                                                                <span class="like-count">{{stars_num}}</span>
+                                                                        </li>
+                                                                {{/each}}  
+                                                                </ul>
+                                                        </section>
+
+
+                                                        <section class="span4 articles-list">
+                                                                <h3>Latest Posts</h3>
+                                                                <ul class="articles">
+                                                                        {{#each latests}}
+                                                                        <li class="article-entry standard">
+                                                                                <h4><a href="/joblist/{{_id}}">{{job}}</a></h4>
+                                                                                <span class="article-meta">Published on {{createdAt}} By<a href="#" title="{{company}}"> {{company}}</a></span>
+                                                                                <span class="like-count">{{stars_num}}</span>
+                                                                        </li>
+                                                                        {{/each}}
+                                                                       
+                                                                </ul>
+                                                        </section>
+                                                </div>
+</template>

@@ -1,0 +1,76 @@
+<template name="jobinfo">
+	                                 
+                                                <ul class="breadcrumb">
+                                                        <li><a href="/">OpenCAS Base</a><span class="divider">/</span></li>
+                                                        <li><a href="/joblist" title="Job List">Job List</a> <span class="divider">/</span></li>
+                                                        <li class="active">[{{company}}] {{job}}</li>
+                                                </ul>
+
+                                                <article class=" type-post format-standard hentry clearfix">
+
+                                                        <h1 class="post-title"><a href="#">{{job}}</a></h1>
+
+                                                        <div class="post-meta clearfix">
+                                                                <span class="date">{{createdAt}}</span>
+                                                                <span class="category"><a href="#" title="{{company}}">{{company}}</a></span>
+                                                                <span class="author"><a href="#">{{publisher}}</a></span>
+                                                                <span class="comments"><a href="#" title="{{email}}">{{email}}</a></span>
+                                                                {{#if Editable}}
+                                                                <span class="edit"><a href="/edit/{{_id}}">Edit</a></span>
+                                                                {{/if}}
+
+                                                                <span class="like-count">{{STAR}}</span>
+                                                                
+                                                        </div><!-- end of post meta -->
+
+                                                        {{#markdown}}{{description}}{{/markdown}}
+
+                                                        
+                                                </article>
+
+                                                <div class="like-btn">
+
+                                                        <form id="like-it-form" >
+                                                                <span class="like-it ">{{STAR}}</span>
+                                                                <input type="hidden" name="post_id" value="99">
+                                                                <input type="hidden" name="action" value="like_it">
+                                                        </form>
+
+                                                        <span class="tags">
+                                                                <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">{{tags}}</a>, <a href="#" rel="tag">setting</a>, <a href="http://knowledgebase.inspirythemes.com/tag/website/" rel="tag">website</a>
+                                                        </span>
+
+                                                </div>
+                                                <hr/>
+                                                <div id="respond">
+
+                                                                <h3>Send a Message</h3>
+
+
+                                                                <form action="#" method="post" id="commentform">
+
+
+                                                                        <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+
+                                                                       
+
+                                                                        <div>
+                                                                                <label for="comment">Introduce yourself</label>
+                                                                                <textarea class="span8" name="comment" id="comment" cols="58" rows="10"></textarea>
+                                                                        </div>
+
+                                                                        
+
+                                                                        <div class="span6 bm30">
+                                                                                <input type="submit" name="submit" value="Send Message" class="btn btn-inverse">
+                                                                                <img src="images/loading.gif" id="contact-loader" alt="Loading...">
+                                                                        </div>
+
+                                                                </form>
+
+                                                        </div>
+                                                
+
+                                                <!-- end of comments -->
+                                       
+</template>
