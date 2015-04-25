@@ -26,12 +26,14 @@ Template.edit.events({
 			var text = event.target.company.value;
 			var email = event.target.email.value;
 			var jobname = event.target.jobname.value;
+			var abstract = event.target.abstract.value;
 			var description = event.target.description.value;
 			var tags = event.target.tags.value;
 			Job.update({_id:this._id},{$set:{
 				company: text,
 				email: email,
 				job: jobname,
+				abstract: abstract,
 				description: description,
 				tags: tags,
 				publisher: Meteor.user().username,

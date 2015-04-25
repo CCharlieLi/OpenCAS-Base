@@ -17,12 +17,14 @@ Template.publish.events({
 		var text = event.target.company.value;
 		var email = event.target.email.value;
 		var jobname = event.target.jobname.value;
+		var abstract = event.target.abstract.value;
 		var description = event.target.description.value;
 		var tags = event.target.tags.value;
 		Job.insert({
 			company: text,
 			email: email,
 			job: jobname,
+			abstract: abstract,
 			description: description,
 			stars: ",",
 			stars_num: 0,
