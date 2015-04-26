@@ -22,6 +22,7 @@
                                                                 <span class="like-count">{{STAR}}</span>
                                                                 
                                                         </div><!-- end of post meta -->
+                                                        {{#markdown}}{{abstract}}{{/markdown}}
 
                                                         {{#markdown}}{{description}}{{/markdown}}
 
@@ -37,7 +38,7 @@
                                                         </form>
 
                                                         <span class="tags">
-                                                                <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">{{tags}}</a>, <a href="#" rel="tag">setting</a>, <a href="http://knowledgebase.inspirythemes.com/tag/website/" rel="tag">website</a>
+                                                                <strong>Tags:&nbsp;&nbsp;</strong><a href="#" rel="tag">{{tags}}</a>
                                                         </span>
 
                                                 </div>
@@ -46,8 +47,9 @@
 
                                                                 <h3>Send a Message</h3>
 
-
-                                                                <form action="#" method="post" id="commentform">
+                                                                {{#if ERROR_FLAG}}<p class="error">{{ERROR_MSG}}</p>{{/if}}
+                                                                {{#if SUCCESS_FLAG}}<p class="success">Your massage has been sent to HR !</p>{{/if}}
+                                                                <form class="msg" id="commentform">
 
 
                                                                         <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
@@ -55,11 +57,14 @@
                                                                        
 
                                                                         <div>
-                                                                                <label for="comment">Introduce yourself</label>
+                                                                                <label for="comment">A brief introduction</label>
                                                                                 <textarea class="span8" name="comment" id="comment" cols="58" rows="10"></textarea>
+                                                                                <!--
+                                                                                <input type="file" name="Upload Your CV" class="myFileInput">
+                                                                                -->
                                                                         </div>
 
-                                                                        
+                                                                        <br/>
 
                                                                         <div class="span6 bm30">
                                                                                 <input type="submit" name="submit" value="Send Message" class="btn btn-inverse">

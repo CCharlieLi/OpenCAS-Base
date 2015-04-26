@@ -1,0 +1,36 @@
+<template name="search">
+                                                    {{#esEach index="jobs"}}
+                                                        
+                                                        <article class="format-standard type-post hentry clearfix">
+
+                                                        <header class="clearfix">
+
+                                                                <h3 class="post-title">
+                                                                        <a href="/joblist/{{_id}}#">{{job}}</a>
+                                                                </h3>
+
+                                                                <div class="post-meta clearfix">
+                                                                        <span class="date">{{createdAt}}</span>
+                                                                        <span class="category"><a href="#" title="View all posts in Advanced Techniques">{{tags}}</a></span>
+                                                                        <span class="comments"><a href="#" title="Comment on Using Javascript">{{company}}</a></span>
+                                                                        <span class="like-count">{{STARS}}</span>
+                                                                </div><!-- end of post meta -->
+
+                                                        </header>
+
+                                                        {{#markdown}}{{abstract}}{{/markdown}}
+
+                                                        </article>
+                                                    {{/esEach}}
+                                                
+
+                                                {{> esLoadMoreButton index="jobs"}}
+
+                                                {{#ifEsHasNoResults index="jobs"}}
+                                                    <div class="no-results">No results found!</div>
+                                                {{/ifEsHasNoResults}}
+
+                                                {{#ifEsIsSearching index="jobs"}}
+                                                        <div>Loading...</div>
+                                                {{/ifEsIsSearching}}
+</template>

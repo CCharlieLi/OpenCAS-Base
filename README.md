@@ -15,6 +15,19 @@ Packages Used:
 - meteor-platform        1.2.2  Include a standard set of Meteor packages in yo...
 - momentjs:moment        2.10.3  Moment.js (official): parse, validate, manipul...
 - useraccounts:unstyled  1.9.1  Accounts Templates unstyled.
+- matteodem:easy-search  1.5.5  Easy-to-use search with Blaze Components (+ Ela...
+- cfs:filesystem         0.1.2  Filesystem storage adapter for CollectionFS
+- cfs:standard-packages  0.5.8  Filesystem for Meteor, collectionFS
+
+
+
+# Function
+- Sign In/Up
+- Publish recruitment info after signin
+- Apply a job and send a email to the publisher with recommendation from OpenCAS after signin
+- Like it (点赞)
+- Search jobs
+- Upload (not yet finished)
 
 # Author
 

@@ -45,10 +45,13 @@
                                 <p class="search-tag-line">Become one of OpenCAS and find the best chance for you.</p>
 
                                 <form id="search-form" class="search-form clearfix" method="get" action="#" autocomplete="off">
-                                        <input class="search-term required" type="text" id="s" name="s" placeholder="Type your search terms here" title="* Please enter a search term!" />
-                                        <input class="search-btn" type="submit" value="Search" />
-                                        <div id="search-error-container"></div>
+                                {{> esInput class="search-term required" index="jobs" placeholder="Type your search terms here" title="* Please enter a search term!" }}
+                                     
                                 </form>
+
+                                
+
+                                
                         </div>
                 </div>
                 <!-- End of Search Wrapper -->
@@ -61,9 +64,10 @@
 
                                         <!-- start of page content -->
                                         <div class="span8 page-content">
-
                                                 <!-- Basic Home Page Template -->
+                                               
                                                 {{> yield }}
+                                            
                                         </div>
                                         <!-- end of page content -->
 
@@ -73,11 +77,12 @@
 
                                                 <section class="widget">
                                                         <div class="support-widget">
-                                                                <h3 class="title">{{#if currentUser}}{{currentUser.username}}{{else}}Join the OpenCAS!{{/if}}</h3>
+                                                                <h3 class="title">{{#if currentUser}}{{currentUser.username}}{{else}}Join the OpenCAS !{{/if}}</h3>
                                                                 <p class="intro">
                                                                 {{#if currentUser}}
                                                                    {{currentUser.profile.institution}}<br/>
                                                                    {{currentUser.profile.research}}
+                                                                   {{currentUser.profile.image}}
                                                                 {{else}}
                                                                 Join us and find the best job for youself.
                                                                 {{/if}}
@@ -86,9 +91,36 @@
                                                         </div>
                                                 </section>
 
-                                                {{> yield "links"}}
+                                                <section class="widget">
+                                                        <div class="quick-links-widget">
+                                                                <h3 class="title">Quick Links</h3>
+                                                                <ul id="menu-quick-links" class="menu clearfix">
+                                                                        <li><a href="/">Home</a></li>
+                                                                        <li><a href="/joblist">Job List</a></li>
+                                                                        <li><a href="/faqs">FAQs</a></li>
+                                                                        
+                                                                </ul>
+                                                        </div>
+                                                </section>
 
-                                                {{> yield "tags"}}
+                                                {{> yield "pop"}}
+
+                                                <section class="widget">
+                                                        <h3 class="title">Tags</h3>
+                                                        <div class="tagcloud">
+                                                                <a href="#" class="btn btn-mini">ML</a>
+                                                                <a href="#" class="btn btn-mini">C++</a>
+                                                                <a href="#" class="btn btn-mini">Python</a>
+                                                                <a href="#" class="btn btn-mini">Ruby</a>
+                                                                <a href="#" class="btn btn-mini">Boost</a>
+                                                                <a href="#" class="btn btn-mini">Java</a>
+                                                                <a href="#" class="btn btn-mini">Javascript</a>
+                                                                <a href="#" class="btn btn-mini">PHP</a>
+                                                                <a href="#" class="btn btn-mini">Web</a>
+                                                                <a href="#" class="btn btn-mini">Design</a>
+                                   
+                                                        </div>
+                                                </section>
 
                                         </aside>
                                         <!-- end of sidebar -->
