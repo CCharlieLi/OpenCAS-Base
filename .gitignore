@@ -1,0 +1,11 @@
+# .gitignore
+# vim/gedit backup file
+*~
+
+# merge conflict files
+*.rej
+*.orig
+
+# vim buffer files
+*.swp
+
