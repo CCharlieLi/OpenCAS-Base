@@ -1,6 +1,6 @@
 # OpenCAS Base
 
-This project is powered by [Meteor](www.meteor.com), a fantastic javascript framework.
+This project is powered by [Meteor](https://www.meteor.com), a fantastic javascript framework.
 Not finished yet, I'm still working on it.
 
 Packages Used:
