@@ -22,11 +22,7 @@ Template.Appbody.events({
 		var text = event.target.text;
 		$(".search-term").focus();
 		$(".search-term").val(text);
-		$(".search-term").keydown(function(event){  
-		  if(event.keyCode==13){  
-		     //doSth  
-		  }  
-		});  
+		
 		//Router.go('/search');
 	}
 });

@@ -9,3 +9,6 @@
 # vim buffer files
 *.swp
 
+#meteor
+.meteor
+server/config.js/
