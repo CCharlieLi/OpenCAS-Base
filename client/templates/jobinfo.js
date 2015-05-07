@@ -28,6 +28,10 @@ Template.jobinfo.helpers({
 		{
 			Session.set('Editable',true);
 		}
+    else
+    {
+      Session.set('Editable',false);
+    }
 		return Session.get('Editable');
 	},
   ERROR_MSG:function(){
@@ -38,6 +42,9 @@ Template.jobinfo.helpers({
   },
   SUCCESS_FLAG:function(){
     return Session.get('SUCCESS_FLAG');
+  },
+  comm:function(){
+    return Commit.find({},{sort:{createdAt:-1},limit:20});
   }
 });
 
@@ -54,37 +61,34 @@ Template.jobinfo.events({
   'submit .msg':function(event){
     event.preventDefault();
     //alert(Meteor.user().username);
-    var comment = event.target.comment.value;
     
-    Commit.insert({
-      from: Meteor.userId(),
-      commit: comment,
-      company: this.company,
-      email: this.email,
-      job: this.job,
-      publisher: this.publisher_id,
-      createdAt: moment().format("YYYY-MM-DD HH:mm").toString(),
+    if(1)
+    {
+      var comment = event.target.comment.value;
+      var company = this.company;
+      var email = this.email;
+      var job = this.job;
+      var publisher = this.publisher_id;
+      
+      Meteor.call('commit',
+        comment,
+        company,
+        email,
+        job,
+        publisher);
 
-      }, function(error, result){
-        if(result == false)
-        {
-          Session.set('ERROR_FLAG', true);
-          Session.set('ERROR_MSG', error.message);
-        }
-        else
-        {
-          Session.set('ERROR_FLAG', false);
-          Session.set('SUCCESS_FLAG', true);
-          //Router.go('joblist');
+      if(Session.get('ERROR_FLAG') == false)
+      {
+        Meteor.call('sendEmail',
+                'ccharlieli@live.com',
+                'charlie@opencas.com',
+                comment,
+                comment);
+      }
+    }
+    
 
-          Meteor.call('sendEmail',
-            'ccharlieli@live.com',
-            'charlie@opencas.com',
-            'Hello from Meteor!',
-            'This is a test of Email.send.');
 
-        }
-      });
 
   }
   /*

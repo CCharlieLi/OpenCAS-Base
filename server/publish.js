@@ -1,17 +1,15 @@
-Meteor.publish('publicLists', function() {
-  return Lists.find({userId: {$exists: false}});
+Meteor.publish('jobs', function() {
+    return Job.find({});
 });
 
-Meteor.publish('privateLists', function() {
+Meteor.publish('tags', function() {
+    return Tag.find({});
+});
+
+Meteor.publish('commits', function() {
   if (this.userId) {
-    return Lists.find({userId: this.userId});
+    return Commit.find({from: this.userId});
   } else {
     this.ready();
   }
-});
-
-Meteor.publish('todos', function(listId) {
-  check(listId, String);
-
-  return Todos.find({listId: listId});
 });

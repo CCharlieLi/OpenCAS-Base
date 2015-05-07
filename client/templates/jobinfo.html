@@ -5,7 +5,9 @@
                                                         <li><a href="/joblist" title="Job List">Job List</a> <span class="divider">/</span></li>
                                                         <li class="active">[{{company}}] {{job}}</li>
                                                 </ul>
-
+                                                {{#each comm}}
+                                                {{createdAt}}
+                                                {{/each}}
                                                 <article class=" type-post format-standard hentry clearfix">
 
                                                         <h1 class="post-title"><a href="#">{{job}}</a></h1>

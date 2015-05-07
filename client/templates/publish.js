@@ -20,19 +20,7 @@ Template.publish.events({
 		var abstract = event.target.abstract.value;
 		var description = event.target.description.value;
 		var tags = event.target.tags.value;
-		Job.insert({
-			company: text,
-			email: email,
-			job: jobname,
-			abstract: abstract,
-			description: description,
-			stars: ",",
-			stars_num: 0,
-			tags: tags,
-			publisher: Meteor.user().username,
-			publisher_id: Meteor.userId(),
-			createdAt: moment().format("YYYY-MM-DD HH:mm").toString(),
-			}, function(error, result){
+		/*var call_back = function(error, result){
 				if(result == false)
 				{
 					Session.set('ERROR_FLAG', true);
@@ -43,7 +31,15 @@ Template.publish.events({
 					Session.set('ERROR_FLAG', false);
 					Router.go('joblist');
 				}
-			});
+			}*/
+
+		Meteor.call('publishJob',
+			text,
+			email,
+			jobname,
+			abstract,
+			description,
+			tags);
 
 	}
 });
