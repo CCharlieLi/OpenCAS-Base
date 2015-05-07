@@ -1,6 +1,8 @@
 # .gitignore
 # vim/gedit backup file
 *~
+~*
+.DS_Store
 
 # merge conflict files
 *.rej
@@ -11,4 +13,4 @@
 
 #meteor
 .meteor
-server/config.js
+server/config.js/
