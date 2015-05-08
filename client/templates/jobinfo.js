@@ -44,7 +44,16 @@ Template.jobinfo.helpers({
     return Session.get('SUCCESS_FLAG');
   },
   comm:function(){
-    return Commit.find({},{sort:{createdAt:-1},limit:20});
+    var str = "";
+    json = Commit.find({},{createdAt:1,sort:{createdAt:-1},limit:1});
+    for (var one in json)
+    {
+      for(var key in json[one])
+         {
+             str += json[one][key] + ",";
+         }
+    } 
+    return json;
   }
 });
 

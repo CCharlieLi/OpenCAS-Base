@@ -24,10 +24,11 @@ Packages Used:
 # Function
 - Sign In/Up
 - Publish recruitment info after signin
-- Apply a job and send a email to the publisher with recommendation from OpenCAS after signin
+- Apply a job by sending email to publisher.(After careful consideration, I choose to remove the email function to make this as simple as possible.)
 - Like it (点赞)
 - Search jobs
-- Upload (not yet finished)
+- Once you registered as one of OpenCAS, we will keep you updated with the email of latest job information.
+
 
 # Author
 

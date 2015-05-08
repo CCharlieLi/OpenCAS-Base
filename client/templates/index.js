@@ -1,9 +1,26 @@
 
 
 Template.Appbody.onRendered(function() {
-   $('#at-nav-button').addClass("waves-effect waves-light btn");  
-   
+   $('#at-nav-button').addClass("waves-effect waves-light btn"); 
+
+   this.find('.page-content')._uihooks = {
+    insertElement: function(node, next) {
+      $(node)
+        .hide()
+        .insertBefore(next)
+        .fadeIn(function () {
+          listFadeInHold.release();
+        });
+    },
+    removeElement: function(node) {
+      $(node).fadeOut(function() {
+        $(this).remove();
+      });
+    }
+  };
 });
+
+
 
 Template.Appbody.helpers({
 	STARS:function(){
