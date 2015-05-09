@@ -44,15 +44,9 @@ Template.jobinfo.helpers({
     return Session.get('SUCCESS_FLAG');
   },
   comm:function(){
-    var str = "";
+    
     json = Commit.find({},{createdAt:1,sort:{createdAt:-1},limit:1});
-    for (var one in json)
-    {
-      for(var key in json[one])
-         {
-             str += json[one][key] + ",";
-         }
-    } 
+    
     return json;
   }
 });
@@ -62,11 +56,16 @@ Template.jobinfo.events({
 		//var temp = Job.findOne(this._id);
 		if(this.stars.indexOf(Meteor.userId()) == -1)  //not in stars
 		{
-			Job.update({_id:this._id},{$set:{stars:this.stars+Meteor.userId()+","}});
-			Job.update({_id:this._id},{$set:{stars_num:this.stars_num+1}});
+      var id = this._id;
+      var stars = this.stars;
+      var stars_num = this.stars_num;
+
+      Meteor.call('likeit',id,stars,stars_num);
+			
 		}
 
-	},
+	}
+  /*
   'submit .msg':function(event){
     event.preventDefault();
     //alert(Meteor.user().username);
@@ -86,6 +85,7 @@ Template.jobinfo.events({
         job,
         publisher);
 
+
       if(Session.get('ERROR_FLAG') == false)
       {
         Meteor.call('sendEmail',
@@ -96,10 +96,7 @@ Template.jobinfo.events({
       }
     }
     
-
-
-
-  }
+  }*/
   /*
 	'change .myFileInput': function(event, template) {
     var temp = this;
