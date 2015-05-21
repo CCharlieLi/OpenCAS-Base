@@ -1,16 +1,11 @@
-# .gitignore
-# vim/gedit backup file
+
 *~
 ~*
 .DS_Store
 
-# merge conflict files
-*.rej
-*.orig
 
-# vim buffer files
 *.swp
 
-#meteor
+
 .meteor
 server/config.js
