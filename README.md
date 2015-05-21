@@ -23,7 +23,7 @@ Packages Used:
 
 # Function
 - Sign In/Up
-- Publish recruitment info after signin
+- Publish recruitment info after signin and verification email.(not finish yet)
 - Apply a job by sending email to publisher.(After careful consideration, I choose to remove the email function to make this as simple as possible.)
 - Like it (点赞)
 - Search jobs

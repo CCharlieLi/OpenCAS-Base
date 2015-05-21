@@ -32,7 +32,7 @@ Template.publish.events({
 					Router.go('joblist');
 				}
 			}*/
-
+		//alert(users.findOne({_id: Meteor.userId()}));
 		Meteor.call('publishJob',
 			text,
 			email,
